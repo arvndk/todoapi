@@ -1,41 +1,40 @@
-const{ObjectID} = require('mongodb');
+const {ObjectID} = require('mongodb');
 
 const {mongoose} = require('./../server/db/mongoose');
 const {Todo} = require('./../server/models/todo');
 const {User} = require('./../server/models/user');
 
-var id = '5bf7def9c92eda2d8ca6e285';
-
-// if(!ObjectID.isValid(id)) {
-//     console.log('Invalid ID');
+// var id = '57bf38394b39c93d2a557e9811';
+//
+// if (!ObjectID.isValid(id)) {
+//   console.log('ID not valid');
 // }
 
 // Todo.find({
-//     __id: id
+//   _id: id
 // }).then((todos) => {
-//     console.log('Todos', todos);
+//   console.log('Todos', todos);
 // });
-
+//
 // Todo.findOne({
-//     __id: id
+//   _id: id
 // }).then((todo) => {
-//     console.log('Todo', todo);
+//   console.log('Todo', todo);
 // });
 
 // Todo.findById(id).then((todo) => {
-//     if (!todo) {
-//         return console.log('ID not found!');
-//     }
-//     console.log('Todo by ID', todo);
-// }).catch((e) => {
-//     console.log(e);
-// })
+//   if (!todo) {
+//     return console.log('Id not found');
+//   }
+//   console.log('Todo By Id', todo);
+// }).catch((e) => console.log(e));
 
-User.findById(id).then((user) => {
-    if(!user) {
-        return console.log('No user found..');
-    }
-    console.log('User', user);
-}).catch((e) => {
-    console.log(e);
+User.findById('57bdb0fcdedf88540bfa2d66').then((user) => {
+  if (!user) {
+    return console.log('Unable to find user');
+  }
+
+  console.log(JSON.stringify(user, undefined, 2));
+}, (e) => {
+  console.log(e);
 });
